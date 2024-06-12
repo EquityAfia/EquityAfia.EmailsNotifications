@@ -1,0 +1,6 @@
+@EquityAfia.EmailsNotifications.Api_HostAddress = http://localhost:5073
+
+GET {{EquityAfia.EmailsNotifications.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
