@@ -9,8 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EquityAfia.EmailsNotifications.Application\EquityAfia.EmailsNotifications.Application.csproj" />
+    <ProjectReference Include="..\EquityAfia.EmailsNotifications.Infrastructure\EquityAfia.EmailsNotifications.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
