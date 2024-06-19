@@ -21,19 +21,25 @@ namespace EquityAfia.EmailsNotifications.Api.Controllers
         [HttpPost("Send-Email")]
         public async Task<IActionResult> SendEmail([FromBody] SendEmailRequest request)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var command = new SendEmailCommand(request);
-            var response = await _mediator.Send(command);
-
-            if (response.Success)
+            try
             {
-                return Ok(response);
-            }
-            else
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var command = new SendEmailCommand(request);
+                var response = await _mediator.Send(command);
+
+                if (response.Success)
+                {
+                    return Ok(response);
+                }
+                else
+                {
+                    return StatusCode((int)HttpStatusCode.InternalServerError, response);
+                }
+            }catch (Exception ex)
             {
-                return StatusCode((int)HttpStatusCode.InternalServerError, response);
+                throw new Exception("Internal server error", ex);
             }
         }
     }

@@ -24,16 +24,22 @@ namespace TeleAfiaPersonal.Infrastructure.EmailSender
 
         private MimeMessage CreateEmailMessage(Message message)
         {
-            var emailMessage = new MimeMessage();
-            emailMessage.From.Add(new MailboxAddress("email", _emailConfig.From));
-            emailMessage.To.AddRange(message.To);
-            emailMessage.Subject = message.Subject;
-            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Text)
+            try
             {
-                Text = message.Content
-            };
+                var emailMessage = new MimeMessage();
+                emailMessage.From.Add(new MailboxAddress("email", _emailConfig.From));
+                emailMessage.To.AddRange(message.To);
+                emailMessage.Subject = message.Subject;
+                emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Text)
+                {
+                    Text = message.Content
+                };
 
-            return emailMessage;
+                return emailMessage;
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
         }
 
         private void Send(MimeMessage mailMessage)
