@@ -15,6 +15,7 @@ namespace EquityAfia.EmailsNotifications.Api.Controllers
 
         public EmailController(IMediator mediator)
         {
+            // Mediatr
             _mediator = mediator;
         }
 
