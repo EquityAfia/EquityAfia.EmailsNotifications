@@ -8,11 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="4.6.0" />
+    <PackageReference Include="MassTransit" Version="8.2.3" />
     <PackageReference Include="MimeKit" Version="4.6.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\EquityAfia.EmailsNotifications.Application\EquityAfia.EmailsNotifications.Application.csproj" />
+    <ProjectReference Include="..\EquityAfia.SharedContracts\EquityAfia.SharedContracts.csproj" />
   </ItemGroup>
 
 </Project>
