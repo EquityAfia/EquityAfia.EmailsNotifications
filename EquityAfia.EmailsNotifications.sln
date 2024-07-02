@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquityAfia.EmailsNotificati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquityAfia.EmailsNotifications.Application", "EquityAfia.EmailsNotifications.Application\EquityAfia.EmailsNotifications.Application.csproj", "{58F9193D-8041-4B54-888D-021CEAA90CBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquityAfia.SharedContracts", "EquityAfia.SharedContracts\EquityAfia.SharedContracts.csproj", "{73A4ED3B-3FB2-421C-8F62-4BE813471987}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{58F9193D-8041-4B54-888D-021CEAA90CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58F9193D-8041-4B54-888D-021CEAA90CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58F9193D-8041-4B54-888D-021CEAA90CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A4ED3B-3FB2-421C-8F62-4BE813471987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A4ED3B-3FB2-421C-8F62-4BE813471987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A4ED3B-3FB2-421C-8F62-4BE813471987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A4ED3B-3FB2-421C-8F62-4BE813471987}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

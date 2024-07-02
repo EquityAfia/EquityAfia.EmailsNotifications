@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EquityAfia.EmailsNotifications.Api\EquityAfia.EmailsNotifications.Api.csproj" />
+  </ItemGroup>
+
 </Project>
