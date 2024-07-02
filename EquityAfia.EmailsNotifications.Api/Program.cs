@@ -1,6 +1,8 @@
 using EquityAfia.EmailsNotifications.Application.interfaces;
 using EquityAfia.EmailsNotifications.Application.SendEmail.Command;
 using EquityAfia.EmailsNotifications.Domain.EmailRequestAndResponse;
+using EquityAfia.EmailsNotifications.Infrastructure.Consumers;
+using MassTransit;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
@@ -30,6 +32,29 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("localhost", "/", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+
+        //Message to be displayed as queue name
+        cfg.ReceiveEndpoint("user-registered-queue", e =>
+        {
+            e.ConfigureConsumer<UserRegisteredConsumer>(context);
+        });
+    });
+
+    x.AddConsumer<UserRegisteredConsumer>();
+});
+
+builder.Services.AddMassTransitHostedService();
+
 
 var app = builder.Build();
 
