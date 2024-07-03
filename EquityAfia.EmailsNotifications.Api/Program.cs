@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using TeleAfiaPersonal.Contracts.Email;
 using TeleAfiaPersonal.Infrastructure.EmailSender;
+using static Org.BouncyCastle.Bcpg.Attr.ImageAttrib;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,9 +49,16 @@ builder.Services.AddMassTransit(x =>
         {
             e.ConfigureConsumer<UserRegisteredConsumer>(context);
         });
+
+        cfg.ReceiveEndpoint("user-forgot-password-queue", e =>
+        {
+            e.ConfigureConsumer<UserForgotPasswordConsumer>(context);
+        });
+
     });
 
     x.AddConsumer<UserRegisteredConsumer>();
+    x.AddConsumer<UserForgotPasswordConsumer>();
 });
 
 builder.Services.AddMassTransitHostedService();
